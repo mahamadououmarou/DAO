@@ -3,14 +3,41 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Utilisateur;
 
 class UtilisateurController extends Controller
 {
    public function liste_utilisateur(){
-    return view('utilisateur.liste');
+      $utilisateurs = Utilisateur::all();
+    return view('utilisateur.liste', compact('utilisateurs'));
    }
 
    public function ajouter_utilisateur(){
     return view('utilisateur.ajouter');
+   }
+
+   public function ajouter_utilisateur_traitement(Request $request){
+      $request->validate([
+          'nom'=>'required',
+          'prenom'=>'required',
+          'email'=>'required',
+          'pwd'=>'required',
+          'pwds'=>'required',
+          'role'=>'required',
+          'etat'=>'required',
+      ]);
+
+      $utilisateur =  new Utilisateur();
+      $utilisateur->nom = $request->nom;
+      $utilisateur->prenom = $request->prenom;
+      $utilisateur->email = $request->email;
+      $utilisateur->pwd = $request->pwd;
+      $utilisateur->pwds = $request->pwds;
+      $utilisateur->role = $request->role;
+      $utilisateur->etat = $request->etat;
+      $utilisateur->save();
+
+      return redirect('/ajouter')->with('status', 'L\'utilisateur enregistrer avec succès');
+
    }
 }
