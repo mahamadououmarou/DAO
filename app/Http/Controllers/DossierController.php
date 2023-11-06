@@ -9,4 +9,5 @@ class DossierController extends Controller
     public function ajouter_dossier(){
         return view('dossier.ajouter');
        }
+
 }
