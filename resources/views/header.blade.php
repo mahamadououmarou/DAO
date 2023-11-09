@@ -11,6 +11,20 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Appel d'offres</a>
                 </li>
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default">Action</button>
+                    <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                      <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu" role="menu">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Separated link</a>
+                    </div>
+                  </div>
             </ul>
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
@@ -157,7 +171,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/utilisateur" class="nav-link">
+                                    <a href="/ajouter_dossier" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Element 1</p>
                                     </a>

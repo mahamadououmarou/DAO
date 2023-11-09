@@ -45,8 +45,7 @@
 </head>
 
 <body class="hold-transition sidebar-mini">
-    <div class="wrapper">
-        @include('header')
+    @include('header') 
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <div class="content-header">
@@ -70,7 +69,7 @@
                         <div class="col-md-12">
                             @if (session('status'))
                                 <div class="alert alert-success">
-                                    {{ session('status') }}
+                                    { { session('status') }}
                                 </div>
                             @endif
                             <ul>
@@ -82,41 +81,48 @@
                             <!-- general form elements -->
                             <div class="card card-success">
                                 <div class="card-header">
-                                    <h3 class="card-title">Formulaire d'ajout utilisateur</h3>
+                                    <h3 class="card-title">Formulaire de modification utilisateur</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form action="/ajouter/traitement" method="POST">
+                                <form action="/modifier/traitement" method="POST">
                                     @csrf
                                     <div class="card-body">
+                                        <input type="text" class="form-control" name="id"
+                                            value="{{ $utilisateur->id }}" style="display: none;">
                                         <div class="form-group">
                                             <label for="Nom">Nom</label>
                                             <input type="text" class="form-control" id="Nom" name="nom"
-                                                placeholder="Entrer nom">
+                                                placeholder="Entrer nom" value="{{ $utilisateur->nom }}">
                                         </div>
                                         <div class="form-group">
                                             <label for="Prenom">Prénom</label>
                                             <input type="text" class="form-control" id="prenom" name="prenom"
-                                                placeholder="Entrer prénom">
+                                                placeholder="Entrer prénom" value="{{ $utilisateur->prenom }}">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Adresse Email</label>
                                             <input type="email" class="form-control" id="exampleInputEmail1"
-                                                name="email" placeholder="Enter email">
+                                                name="email" placeholder="Enter email"
+                                                value="{{ $utilisateur->email }}">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Mot de passe</label>
                                             <input type="passe" class="form-control" id="exampleInputPassword1"
-                                                name="pwd" placeholder="Password">
+                                                name="pwd" placeholder="Password"
+                                                value="{{ $utilisateur->pwd }}">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Confirmer mot de passe</label>
                                             <input type="passez" class="form-control" id="exampleInputPassword1"
-                                                name="pwds" placeholder="Password">
+                                                name="pwds" placeholder="Password"
+                                                value="{{ $utilisateur->pwds }}">
                                         </div>
                                         <div class="form-group">
                                             <label>Rôle</label>
                                             <select name="role" class="form-control">
+
+                                                <option value="{{ $utilisateur->role }}"></option>
                                                 <option>option 1</option>
                                                 <option>option 2</option>
                                                 <option>option 3</option>
@@ -127,6 +133,7 @@
                                         <div class="form-group">
                                             <label>Etat</label>
                                             <select name="etat" class="form-control">
+                                                <option value="{{ $utilisateur->etat }}"></option>
                                                 <option>option 1</option>
                                                 <option>option 2</option>
                                                 <option>option 3</option>
@@ -147,6 +154,7 @@
                 </div>
             </section>
         </div>
+
 
         @include('footer')
         <script src="/plugins/jquery/jquery.min.js"></script>

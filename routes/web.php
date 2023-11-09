@@ -17,6 +17,9 @@ use App\Http\Controllers\UtilisateurController;
 */
 Route::get('/utilisateur', [UtilisateurController::class, 'liste_utilisateur']);
 Route::get('/ajouter', [UtilisateurController::class, 'ajouter_utilisateur']);
+Route::get('/modifier_utilisateur/{id}', [UtilisateurController::class, 'modifier_utilisateur']);
+Route::post('/modifier/traitement', [UtilisateurController::class, 'modifier_utilisateur_traitement']);
+Route::get('/supprimer_utilisateur/{id}', [UtilisateurController::class, 'supprimer_utilisateur']);
 Route::post('/ajouter/traitement', [UtilisateurController::class, 'ajouter_utilisateur_traitement']);
 Route::get('/ajouter_dossier', [DossierController::class, 'ajouter_dossier']);
-Route::get('/accueil', [AccueilController::class, 'accueil']);
+Route::get('/', [AccueilController::class, 'accueil']);
